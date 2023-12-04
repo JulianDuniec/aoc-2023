@@ -1,5 +1,12 @@
 #include <ctype.h>
+#include <stdio.h>
 #include <string.h>
+
+int next_is_number() {
+  char peek = getc_unlocked(stdin);
+  ungetc(peek, stdin);
+  return isnumber(peek);
+}
 
 char *ltrim(char *s) {
   while (isspace(*s)) {
